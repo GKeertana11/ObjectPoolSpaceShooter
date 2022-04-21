@@ -20,8 +20,9 @@ public class BulletMovement : MonoBehaviour
     {
         if(collision.gameObject.tag=="Astroid")
         {
-            //collision.gameObject.SetActive(false);
-            Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
+            this.gameObject.SetActive(false);
+           // Destroy(collision.gameObject);
         }
 
     }

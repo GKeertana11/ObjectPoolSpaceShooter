@@ -71,10 +71,15 @@ public class ObjectPoolScript : MonoBehaviour
             }
         }
     }
+
     public void DecreaseHealth()
     {
         health--;
         Debug.Log("Health" + health);
+        if(health<=0)
+        {
+            Debug.Log("Game Over");
+        }
     }
 
 }

@@ -21,9 +21,10 @@ public class AstroidMovement : MonoBehaviour
     {
         if(collision.gameObject.tag=="Player")
         {
-            Destroy(this.gameObject);
+           // Destroy(this.gameObject);
             ObjectPoolScript.instance.DecreaseHealth();
             Debug.Log("player");
+            this.gameObject.SetActive(false);
         }
     }
 }
