@@ -369,6 +369,7 @@ GameObject:
   m_Component:
   - component: {fileID: 662645436}
   - component: {fileID: 662645437}
+  - component: {fileID: 662645439}
   - component: {fileID: 662645438}
   m_Layer: 0
   m_Name: SpawnManager
@@ -424,3 +425,17 @@ MonoBehaviour:
     amount: 10
   - prefab: {fileID: 8190784831214172166, guid: 217f50730bd64f849940286ab30cf693, type: 3}
     amount: 10
+  - prefab: {fileID: 5538513104747491200, guid: edced54926bb09e498710a1ca07cc4d7, type: 3}
+    amount: 10
+--- !u!114 &662645439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662645435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97cb05d6a33d4794996040bd96ae0c3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

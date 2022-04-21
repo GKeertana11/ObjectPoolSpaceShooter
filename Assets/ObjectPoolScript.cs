@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class ObjectPoolScript : MonoBehaviour
 {
-   // private static ObjectPoolScript instance;
+    // private static ObjectPoolScript instance;
     public static ObjectPoolScript instance;
-   public  int maxhealth=100;
+    public int maxhealth = 100;
     public int health;
-        private void OnJointBreak(float breakForce)
+    private void OnJointBreak(float breakForce)
     {
-        
+
     }
     public List<GameObject> pool = new List<GameObject>();
     public List<PoolObject> poolItems = new List<PoolObject>();
     private void Awake()
     {
-        if(instance==null)
+        if (instance == null)
         {
             instance = this;
         }
@@ -38,11 +38,11 @@ public class ObjectPoolScript : MonoBehaviour
     {
         foreach (PoolObject item in poolItems)
         {
-            
-            for(int i=0;i<item.amount;i++)
+
+            for (int i = 0; i < item.amount; i++)
             {
 
-               GameObject temp= Instantiate(item.prefab);
+                GameObject temp = Instantiate(item.prefab);
                 temp.SetActive(false);
                 pool.Add(temp);
 
@@ -52,17 +52,17 @@ public class ObjectPoolScript : MonoBehaviour
 
     public GameObject GetObjectsFromPool(string tagname)
     {
-       for(int i=0;i<pool.Count;i++)
+        for (int i = 0; i < pool.Count; i++)
         {
-          if(pool[i].gameObject.tag==tagname && !pool[i].gameObject.activeInHierarchy)
+            if (pool[i].gameObject.tag == tagname && !pool[i].gameObject.activeInHierarchy)
             {
                 return pool[i].gameObject;
             }
         }
         return null;
-        foreach(PoolObject item in poolItems)
+        foreach (PoolObject item in poolItems)
         {
-            if(item.prefab.tag==tagname)
+            if (item.prefab.tag == tagname)
             {
                 GameObject temp = Instantiate(item.prefab);
                 temp.SetActive(false);
@@ -75,13 +75,21 @@ public class ObjectPoolScript : MonoBehaviour
     public void DecreaseHealth()
     {
         health--;
-        Debug.Log("Health" + health);
-        if(health<=0)
+        Debug.Log("DecreasedHealth" + health);
+        if (health <= 0)
         {
             Debug.Log("Game Over");
         }
     }
 
+    public void IncreaseHealth()
+    {
+        if (health < maxhealth)
+        {
+            health++;
+            Debug.Log("IncreasedHealth" + health);
+        }
+    }
 }
 [System.Serializable]
 public class PoolObject {
