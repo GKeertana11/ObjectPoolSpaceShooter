@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float playerSpeed;
     public GameObject bullet;
 
-    Vector3 offset;
+   public Vector3 offset;
 
     // Start is called before the first frame update
     void Start()

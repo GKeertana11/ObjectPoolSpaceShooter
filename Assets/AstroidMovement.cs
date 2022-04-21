@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AstroidMovement : MonoBehaviour
 {
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,15 @@ public class AstroidMovement : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.down * Time.deltaTime);  
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag=="Player")
+        {
+            Destroy(this.gameObject);
+            ObjectPoolScript.instance.DecreaseHealth();
+            Debug.Log("player");
+        }
     }
 }

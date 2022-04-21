@@ -29,7 +29,7 @@ public class SpawnManager : MonoBehaviour
             if (Random.Range(0, 100) < 1f)
             {
 
-                temp.transform.position = this.transform.position + new Vector3(0f, Random.Range(-3f, 3f), 0f);
+                temp.transform.position = this.transform.position + new Vector3(Random.Range(-3f, 3f),0f , 0f);
                 temp.SetActive(true);
             }
 

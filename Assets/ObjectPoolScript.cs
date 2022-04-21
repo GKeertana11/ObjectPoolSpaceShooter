@@ -6,6 +6,12 @@ public class ObjectPoolScript : MonoBehaviour
 {
    // private static ObjectPoolScript instance;
     public static ObjectPoolScript instance;
+   public  int maxhealth=100;
+    public int health;
+        private void OnJointBreak(float breakForce)
+    {
+        
+    }
     public List<GameObject> pool = new List<GameObject>();
     public List<PoolObject> poolItems = new List<PoolObject>();
     private void Awake()
@@ -19,6 +25,7 @@ public class ObjectPoolScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        health = maxhealth;
         AddToPool();
     }
 
@@ -63,6 +70,11 @@ public class ObjectPoolScript : MonoBehaviour
                 return temp;
             }
         }
+    }
+    public void DecreaseHealth()
+    {
+        health--;
+        Debug.Log("Health" + health);
     }
 
 }

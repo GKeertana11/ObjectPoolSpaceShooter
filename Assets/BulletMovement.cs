@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletMovement : MonoBehaviour
 {
-   
+    public float bulletspeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +14,15 @@ public class BulletMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.right*Time.deltaTime); 
+        transform.Translate(Vector3.right*bulletspeed*Time.deltaTime); 
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag=="Astroid")
+        {
+            //collision.gameObject.SetActive(false);
+            Destroy(collision.gameObject);
+        }
+
     }
 }
