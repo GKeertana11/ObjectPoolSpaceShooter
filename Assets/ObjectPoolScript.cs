@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ObjectPoolScript : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class ObjectPoolScript : MonoBehaviour
     public static ObjectPoolScript instance;
     public int maxhealth = 100;
     public int health;
+    public Text healthtext;
     private void OnJointBreak(float breakForce)
     {
 
@@ -75,6 +77,7 @@ public class ObjectPoolScript : MonoBehaviour
     public void DecreaseHealth()
     {
         health--;
+        healthtext.GetComponent<Text>().text = health.ToString();
         Debug.Log("DecreasedHealth" + health);
         if (health <= 0)
         {
@@ -87,6 +90,7 @@ public class ObjectPoolScript : MonoBehaviour
         if (health < maxhealth)
         {
             health++;
+            healthtext.GetComponent<Text>().text = health.ToString();
             Debug.Log("IncreasedHealth" + health);
         }
     }
